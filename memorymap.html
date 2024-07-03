@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>메모리맵</title>
+    <link rel="stylesheet" href="mM.css">
+</head>
+<body class="nanum-pen-script-regular">  
+    <div class="container">
+        <div class="left">
+            <div class="backgroundsetting">
+                <input type="text" id="주소" placeholder="ff1012ff" maxlength="8" required>
+                <input type="submit" value="적용하기">
+                <table style="table-layout: fixed;">
+                    <thead>
+                        <caption><h1 class="nanum-pen-script-regular">메모리맵 표</h1></caption>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                        <tr>
+                            <td>&주소</td>
+                            <td>주소</td>
+                            <td>&nbsp;</td>
+                            <td>들어오는 변수</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="right">
+            <h1>C언어</h1>
+            <form id="inputForm">
+                <label for="userInput">코드를 입력해주세요.</label>
+                <textarea id="userInput" name="userInput" rows="10" cols="30"></textarea>
+                <button type="submit">컴파일</button>
+            </form>
+            <p id="output"></p>
+        </div>
+    </div>
+    <script src="nM.js"></script>
+    <h2 class="footer">제작자 : 조완익, 윤관</h2>
+</body>
+</html>

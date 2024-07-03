@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap'); /*웹 폰트 설정*/
+.nanum-pen-script-regular {
+    font-family: "Nanum Pen Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.footer {
+    position: absolute;
+    
+    right: 5px; /* 오른쪽 여백 조정 */
+    background-color: #ffffff;
+    
+    border-radius: 5px;
+}
+
+table, th, td { /* 표 테두리, 행, 열, 크기조절, 글자 중앙 정렬 */
+    border: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    width: 150px;
+    height: 25px;  
+}
+
+table tbody tr:nth-child(8n+1),
+table tbody tr:nth-child(8n+2),
+table tbody tr:nth-child(8n+3),
+table tbody tr:nth-child(8n+4) {
+    background-color: rgb(162, 162, 162);
+}
+
+.backgroundsetting {
+    background-position: absolute; 
+    left: 100%;
+    top: 100%;
+    z-index: 1;
+}
+
+.backgroundsetting::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: url("backgroundimage.png");
+    position: absolute;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+    background-position: center center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px; /* 컨테이너에 여백을 추가합니다 */
+}
+/* 표 왼쪽으로 밀게 해주는 class */
+.left {
+    width: 60%;
+}
+/* ---------------오른쪽에 있는 C언어 컴파일 input ------------------*/
+.right {
+    width: 35%;
+    padding-left: 40px;
+    border-left: 1px solid #ccc;
+}
+
+.right form {
+    display: flex;
+    flex-direction: column;
+}
+
+.right textarea {
+    width: 100%;
+    height: 500px;
+    resize: both;
+    overflow: auto;
+}
+
+.right button { /* 컴파일 버튼 설정 */
+    padding: 10px 40px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.right button:hover { /* 마우스 올려놨을 때 색 변경 */
+    background-color: #0056b3;
+}
+/* -------------------------------------------------------------- */
+#output {
+    margin-top: 40px;
+    font-weight: bold;
+}
+
