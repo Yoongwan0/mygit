@@ -3,29 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <title>메모리맵</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap'); /*웹 폰트 설정*/
+        .nanum-pen-script-regular {
+        font-family: "Nanum Pen Script", cursive;
+        font-weight: 400;
+        font-style: normal;
+        }
+       table,th,td{ /*표 테두리, 행, 열, 크기조절, 글자 중앙 정렬*/
+        border :1px solid rgb(0, 0, 0);
+        text-align : center;
+        width: 150px;
+        height: 25px;  
+        }
+        .color{     /*표 뒷배경색 설정*/
+            background-color: rgb(219, 219, 219);
+        }
+        .backgroundsetting{
+                background-position: absolute; 
+                left: 100%;
+                top: 100%;
+                z-index: 1;
+                }
+        .backgroundsetting::after{
+            width: 100%;
+            height: 100%;
+            content: "";
+            background: url("backgroundimage.png");
+            position: absolute;
+            background-attachment: scroll;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.3;
+            background-position : center center;
+            }
+        
+    </style>
 </head>
-<body>
-    <img src="C.png" alt="C사진" width="50%">
-    <p></p>
-    <input type = "text" id = "주소" placeholder="ff1012ff" maxlength="8" required>
-    <input type = "submit" value = "적용하기">
-    <table>
+
+<body class="nanum-pen-script-regular">   
+    <div class="backgroundsetting">
+        <input type = "text" id = "주소" placeholder="ff1012ff" maxlength="8" required>
+        <input type = "submit" value = "적용하기">
+        <table style="table-layout: fixed;" >
         <thead>
-        <caption><b><h3>Memory Map</h3></b></caption>
+        <caption><h1 class = "nanum-pen-script-regular">메모리맵 표</h1></caption>
         </thead>
         <tbody>
-            <tr>
-                <td><abbr title="컴퓨터에 할당되는 메모리 주소">주소</abbr> </td>
-                <td>값</td>
-                <td>들어가는 리스트</td>
+            <tr class="color">
+                <td>&주소</td>
+                <td>주소 </td>
+                <td>&nbsp;</td>
+                <td>들어오는 변수</td>
             </tr>
-            <tr>
+            <tr class="color">
+                <td>&주소</td>
                 <td>주소</td>
-                <td>값</td>
-                <td>들어가는 리스트</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
             </tr>
+            <tr class="color"> 
+                <td>&주소</td>                   
+                <td>주소</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
+                </tr>
+                <tr class="color">
+                    <td>&주소</td>
+                    <td>주소</td>
+                    <td>&nbsp; </td>
+                    <td>들어오는 변수</td>
+                </tr>
+            <tr >
+                <td>&주소</td>
+                <td>주소</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
+            </tr>
+            <tr >
+                <td>&주소</td>
+                <td>주소</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
+            </tr>
+            <tr >
+                <td>&주소</td>
+                <td>주소</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
+            </tr>
+            <tr >
+                <td>&주소</td>
+                <td>주소</td>
+                <td>&nbsp; </td>
+                <td>들어오는 변수</td>
+            </tr>
+
         </tbody>
     </table>
+    </div>
+    
 
 
 </body>
