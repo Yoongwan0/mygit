@@ -10,7 +10,6 @@
     
     right: 5px; /* 오른쪽 여백 조정 */
     background-color: #ffffff;
-    
     border-radius: 5px;
 }
 
@@ -25,7 +24,7 @@ table tbody tr:nth-child(8n+1),
 table tbody tr:nth-child(8n+2),
 table tbody tr:nth-child(8n+3),
 table tbody tr:nth-child(8n+4) {
-    background-color: rgb(162, 162, 162);
+    background-color: rgb(196, 195, 195);
 }
 
 .backgroundsetting {
@@ -53,17 +52,48 @@ table tbody tr:nth-child(8n+4) {
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 40px; /* 컨테이너에 여백을 추가합니다 */
+    padding: 40px; 
+    flex-wrap: wrap;
+    /* 컨테이너에 여백을 추가합니다 */
 }
+
+.input-container {
+        position: absolute;
+        top: 60px;
+        left: 446px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
 /* 표 왼쪽으로 밀게 해주는 class */
-.left {
-    width: 60%;
+ .left {                 /*  중간 경계선 설정  */
+        flex: 2;
+        min-width: 650px; 
+        max-width: 650px;
+        padding-right: 40px;
+        box-sizing: border-box;
+        
+    }
+.left form {
+    display: flex;
+    flex-direction: column;
+}
+.left table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.left th, .left td {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 8px;
 }
 /* ---------------오른쪽에 있는 C언어 컴파일 input ------------------*/
-.right {
-    width: 35%;
+/* 중간에 있는 경계선 설정 */
+.right {            
+    flex: 2;
+    min-width: 200px;
+    max-width: 600px;
     padding-left: 40px;
-    border-left: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .right form {
@@ -96,4 +126,26 @@ table tbody tr:nth-child(8n+4) {
     margin-top: 40px;
     font-weight: bold;
 }
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+    .left {
+        padding-right: 0;
+        border-right: none;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+    .right {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+    }
+}
+
+
+
+
 
