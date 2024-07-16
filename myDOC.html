@@ -3,30 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>div Example</title>
+    <title>C Array Address Viewer</title>
     <style>
-        * {
-          box-sizing: border-box;
+        table {
+            width: 100%;
+            border-collapse: collapse;
         }
-        nav ul {
-          list-style:none 
+        table, th, td {
+            border: 1px solid black;
         }
-        nav ul li {
-          display:inline-block; 
-          padding:20px;
-          margin:0 20px;
-          border:1px solid #222; 
+        th, td {
+            padding: 10px;
+            text-align: center;
         }
-      </style>
-    </head>
-    <body>
-       <nav>
-         <ul>
-          <li>menu 1</li>
-          <li>menu 2</li>
-          <li>menu 3</li>
-          <li>menu 4</li>
-         </ul>
-       </nav>
-    </body>
+    </style>
+</head>
+<body>
+    <h1>C 배열 요소 주소 보기</h1>
+    <form id="codeForm">
+        <label for="arrayInput">배열 요소 (쉼표로 구분):</label>
+        <input type="text" id="arrayInput" name="arrayInput">
+        <button type="button" onclick="compileAndRun()">실행</button>
+    </form>
+    <br>
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Index</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Addresses will be appended here -->
+        </tbody>
+    </table>
+
+    <script>
+        async function compileAndRun() {
+            const input = document.getElementById('arrayInput').value;
+            const arrayElements = input.split(',').map(el => el.trim());
+
+            const cCode = `
+                #include <stdio.h>
+
+                int main() {
+                    int arr[] = {${arrayElements.join(', ')}};
+                    int size = sizeof(arr) / sizeof(arr[0]);
+
+                    for(int i = 0; i < size; i++) {
+                        printf("%p\\n", (void*)&arr[i]);
+                    }
+
+                    return 0;
+                }
+            `;
+
+            const response = await fetch('https://api.jdoodle.com/v1/execute', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    script: cCode,
+                    language: 'c',
+                    versionIndex: '0',
+                    clientId: 'yourClientId', // Replace with your jdoodle client ID
+                    clientSecret: 'yourClientSecret' // Replace with your jdoodle client secret
+                })
+            });
+
+            const result = await response.json();
+            const addresses = result.output.trim().split('\n');
+
+            const tableBody = document.getElementById('resultTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+
+            addresses.forEach((address, index) => {
+                const row = document.createElement('tr');
+
+                const indexCell = document.createElement('td');
+                indexCell.textContent = index;
+                row.appendChild(indexCell);
+
+                const addressCell = document.createElement('td');
+                addressCell.textContent = address;
+                row.appendChild(addressCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
+</body>
 </html>
