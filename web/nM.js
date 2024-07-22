@@ -21,7 +21,11 @@ document.getElementById('applyButton').addEventListener('click', function() {
         cells[1].textContent = baseValue.toString(16).toUpperCase().padStart(8, '0');
         baseValue++; // 값을 1씩 증가
     }
+});
+// 오른쪽 컴파일 버튼 클릭 시 동작 정의
+document.getElementById('inputForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // 기본 제출 동작 방지
 
-    // 입력 필드 초기화
-    document.getElementById('주소').value = '';
+    // 여기에 컴파일 버튼 클릭 시 수행할 동작 추가
+
 });
